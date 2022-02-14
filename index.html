@@ -227,4 +227,14 @@
       </div>
     </footer>
   </body>
+  <script>
+    // if browser is capable, use service workers
+    (function() {
+      if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./service-worker.js")
+          .then(() => console.log("Service Worker registered successfully."))
+          .catch(error => console.log("Service Worker registration failed:", error));
+      }
+    })();
+    </script>
 </html>
