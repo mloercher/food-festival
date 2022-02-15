@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="manifest" href="dist/manifest.json" />
     <script src="./dist/app.bundle.js" defer></script>
   </head>
   <body>
@@ -229,12 +230,15 @@
   </body>
   <script>
     // if browser is capable, use service workers
-    (function() {
-      if("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./service-worker.js")
+    (function () {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js")
           .then(() => console.log("Service Worker registered successfully."))
-          .catch(error => console.log("Service Worker registration failed:", error));
+          .catch((error) =>
+            console.log("Service Worker registration failed:", error)
+          );
       }
     })();
-    </script>
+  </script>
 </html>
